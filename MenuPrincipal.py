@@ -1,0 +1,21 @@
+class MenuPrincipal:
+
+    def exibir_menu_principal(self): #exibe o primeiro menu de opcoes
+        print('*********************************')
+        print('**     BEM-VINDO AO PORTAL     **')
+        print('*********************************\n')
+
+        print('1. Estudantes \n2. Disciplinas\n3. Professores\n4. Turmas \n5. Matrículas \n6. Sair')
+
+    def obter_opcao_navegacao(self): #metodo p/ ler o input e tratar possiveis erros
+        while True:
+            try:
+                opcao_navegacao = int(input('\nQual seu destino hoje? '))
+                if 1 <= opcao_navegacao <=6:
+                    return opcao_navegacao
+                else:
+                    print('\nOpção inválida, tente novamente! Escolha uma opção entre 1 e 6.')  
+            except ValueError:
+                print('\nOpção inválida! Digite um NÚMERO entre 1 e 6.')
+
+            
