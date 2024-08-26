@@ -20,13 +20,14 @@ while True: #loop para navegacao entre os menus
         print('\nSaindo do sistema...')
         break
     else:
-        menu_operacoes = MenuOperacional(opcao_navegacao)
-        menu_operacoes.exibir_menu_operacional()
-        opcao_operacional = menu_operacoes.obter_opcao_operacional()
+        while True:
+            menu_operacoes = MenuOperacional(opcao_navegacao)
+            menu_operacoes.exibir_menu_operacional()
+            opcao_operacional = menu_operacoes.obter_opcao_operacional()
 
-        if opcao_operacional == 5:
-            continue #isso faz voltar pra o inicio do loop
-        else:
-            print (f'\nVocê escolheu o menu {tipos_menu[opcao_navegacao - 1]}, e a operação {tipos_operacao[opcao_operacional - 1]}.')
-            print('\nSaindo do sistema...')
-            break
+            if opcao_operacional == 5:
+                break #isso faz voltar pra menu principal
+            else:
+                print (f'\nVocê escolheu o menu {tipos_menu[opcao_navegacao - 1]}, e a operação {tipos_operacao[opcao_operacional - 1]}.')
+                #print('\nSaindo do sistema...')
+                #break
