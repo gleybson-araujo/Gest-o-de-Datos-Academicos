@@ -1,4 +1,4 @@
-from Estudante import Estudante
+from Classes import Estudante
 import re
 
 dados_Estudantes = []
@@ -7,7 +7,6 @@ class MenuOperacional:
     def __init__(self, opcao_navegacao):
         self.opcao_navegacao = opcao_navegacao
         
-
     def exibir_menu_operacional(self):
         tipos_usuarios = ['ESTUDANTES','DISCIPLINAS', 'PROFESSORES', 'TURMAS', 'MATRICULAS']
         print(f'\n*** MENU DE OPERAÇÕES PARA {tipos_usuarios[self.opcao_navegacao - 1]}! ***\n ')
@@ -30,7 +29,7 @@ class MenuOperacional:
             while True:
                 nome = input('\nInsira o nome do estudante: ')
                 if not re.match("^[A-Za-z ]+$", nome):
-                    print('\nNome inválido, o nome só pode conter letras')
+                    print('\nNome inválido, o nome só pode conter letras sem acentuação.')
                 else:  
                     dados_Estudantes.append(Estudante(nome))
                     print('\nEstudante incluido com sucesso!')
@@ -41,5 +40,14 @@ class MenuOperacional:
             if len(dados_Estudantes) == 0:
                 print('\nNão há nenhum estudante cadastrado.')
             else:
+                print('')
+                count = 1
                 for estudante in dados_Estudantes:
-                        print(estudante.nome)
+                        print(f'{count}. {estudante.nome}')
+                        count += 1
+                        
+    def atualizar(self):
+        print('\nEM DESENVOLVIMENTO!\n')
+        
+    def excluir(self):
+        print('\nEM DESENVOLVIMENTO!\n')
