@@ -1,7 +1,12 @@
+from Estudante import Estudante
+import re
+
+dados_Estudantes = []
 class MenuOperacional:
 
     def __init__(self, opcao_navegacao):
         self.opcao_navegacao = opcao_navegacao
+        
 
     def exibir_menu_operacional(self):
         tipos_usuarios = ['ESTUDANTES','DISCIPLINAS', 'PROFESSORES', 'TURMAS', 'MATRICULAS']
@@ -19,3 +24,22 @@ class MenuOperacional:
 
             except ValueError:
                 print('\nOpção inválida! Digite um NÚMERO entre 1 e 5.')
+    
+    def incluir(self):
+        if self.opcao_navegacao == 1:
+            while True:
+                nome = input('\nInsira o nome do estudante: ')
+                if not re.match("^[A-Za-z ]+$", nome):
+                    print('\nNome inválido, o nome só pode conter letras')
+                else:  
+                    dados_Estudantes.append(Estudante(nome))
+                    print('\nEstudante incluido com sucesso!')
+                    break
+            
+    def listar(self):
+        if self.opcao_navegacao == 1:
+            if len(dados_Estudantes) == 0:
+                print('\nNão há nenhum estudante cadastrado.')
+            else:
+                for estudante in dados_Estudantes:
+                        print(estudante.nome)

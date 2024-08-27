@@ -27,6 +27,16 @@ while True: #loop para navegacao entre os menus
 
             if opcao_operacional == 5:
                 break #isso faz voltar pra menu principal
+            
+            elif opcao_navegacao == 1:
+                match opcao_operacional:
+                    case 1: menu_operacoes.incluir()
+                    case 2: menu_operacoes.listar()
+                    case 3: pass
+                    case 4: pass
+            elif opcao_navegacao == 2:
+                match opcao_operacional:
+                    case 1: pass
             else:
                 print (f'\nVocê escolheu o menu {tipos_menu[opcao_navegacao - 1]}, e a operação {tipos_operacao[opcao_operacional - 1]}.')
                 #print('\nSaindo do sistema...')
