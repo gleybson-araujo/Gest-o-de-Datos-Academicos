@@ -11,8 +11,10 @@ class MenuPrincipal:
         while True:
             try:
                 opcao_navegacao = int(input('\nQual seu destino hoje? '))
-                if 1 <= opcao_navegacao <=6:
+                if opcao_navegacao == 1 or opcao_navegacao == 6:
                     return opcao_navegacao
+                elif 1 < opcao_navegacao < 6:
+                    print('\nEM DESENVOLVIMENTO!')
                 else:
                     print('\nOpção inválida, tente novamente! Escolha uma opção entre 1 e 6.')  
             except ValueError:

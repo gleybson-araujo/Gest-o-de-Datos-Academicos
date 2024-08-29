@@ -27,11 +27,12 @@ class MenuOperacional:
     def incluir(self):
         if self.opcao_navegacao == 1:
             while True:
+                print("\n**** INCLUSÃO ****")
                 nome = input('\nInsira o nome do estudante: ')
                 if not re.match("^[A-Za-z ]+$", nome):
                     print('\nNome inválido, o nome só pode conter letras sem acentuação.')
                 else:  
-                    dados_Estudantes.append(Estudante(nome))
+                    dados_Estudantes.append(Estudante(nome.upper()))
                     print('\nEstudante incluido com sucesso!')
                     break
             
@@ -40,7 +41,7 @@ class MenuOperacional:
             if len(dados_Estudantes) == 0:
                 print('\nNão há nenhum estudante cadastrado.')
             else:
-                print('')
+                print('\n**** LISTA DE ALUNOS ****')
                 count = 1
                 for estudante in dados_Estudantes:
                         print(f'{count}. {estudante.nome}')
