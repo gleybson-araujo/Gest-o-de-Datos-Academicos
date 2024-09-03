@@ -13,9 +13,9 @@ class MenuOperacional:
         print('1. Incluir \n2. Listar \n3. Atualizar \n4. Excluir \n5. Voltar para o menu principal')
     
     def obter_opcao_operacional(self):
-        while True:
-            opcao_operacional = int(input('\nEscolha uma opção: '))
+        while True: 
             try:
+                opcao_operacional = int(input('\nEscolha uma opção: '))
                 if 1 <= opcao_operacional <= 5:
                     return opcao_operacional
                 else:
@@ -23,13 +23,17 @@ class MenuOperacional:
 
             except ValueError:
                 print('\nOpção inválida! Digite um NÚMERO entre 1 e 5.')
+            except:
+                print('\nOcorreu um erro, tente novamente!')
     
     def incluir(self):
         if self.opcao_navegacao == 1:
             while True:
                 print("\n**** INCLUSÃO ****")
-                nome = input('\nInsira o nome do estudante: ')
-                if not re.match("^[A-Za-z ]+$", nome):
+                nome = input('\nPara voltar ao menu principal, digite 0.\nInsira o nome do estudante:')
+                if nome == '0':
+                    break
+                elif not re.match("^[A-Za-z ]+$", nome):
                     print('\nNome inválido, o nome só pode conter letras sem acentuação.')
                 else:  
                     dados_Estudantes.append(Estudante(nome.upper()))
