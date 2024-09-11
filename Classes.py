@@ -62,14 +62,15 @@ class Estudante():
                             estudante.cpf = 0
                             novo_cpf = input('\nPara voltar ao menu, digite 0.\n\nInsira o CPF do estudante: ')
                             if novo_cpf == '0':
+                                estudante.cpf = buffer
                                 print('\nVoltando para o menu de operações...')
                                 return
                             elif not Validacoes.validar_cpf(novo_cpf):
                                 print('\nCPF inválido, tente novamente!')
                                 estudante.cpf = buffer
                             elif Validacoes.cpf_ja_existe(novo_cpf, menu_operacoes):
-                                print('\nJá existe um estudante cadastrado com este CPF! Tente novamente!')
                                 estudante.cpf = buffer
+                                print('\nJá existe um estudante cadastrado com este CPF! Tente novamente!')
                             else:
                                 estudante.cpf = novo_cpf
                                 break
